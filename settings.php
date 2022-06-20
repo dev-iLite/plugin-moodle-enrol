@@ -26,10 +26,12 @@
 defined('MOODLE_INTERNAL') || die();
 
 /** Paystack live mode disabled. */
-define('LIVE_MODE_DISABLED', 0);
+// define('LIVE_MODE_DISABLED', 0);
+if (!defined('LIVE_MODE_DISABLED')) define('LIVE_MODE_DISABLED', '0');
 
 /** Paystack live mode enabled.*/
-define('LIVE_MODE_ENABLED', 1);
+// define('LIVE_MODE_ENABLED', 1);
+if (!defined('LIVE_MODE_ENABLED')) define('LIVE_MODE_ENABLED', '1');
 
 global $CFG;
 
@@ -155,12 +157,13 @@ if ($ADMIN->fulltree) {
         $options
     ));
 
+    // 'NGN',
     $currencies = enrol_get_plugin('paystack')->get_currencies();
     $settings->add(new admin_setting_configselect(
         'enrol_paystack/currency',
         get_string('currency', 'enrol_paystack'),
         '',
-        'NGN',
+        'USD',
         $currencies
     ));
 
