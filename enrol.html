@@ -1,6 +1,6 @@
 <div class="mdl-align">
     <h3><?php echo $instancename; ?></h3>
-    <p><?php echo $message; ?></p>
+    <p><?php $message = isset($message) ? $message: ''; echo $message; ?></p>
     <p><b><?php echo get_string("cost").": {$instance->currency} {$localisedcost}"; ?></b></p>
     <div>
         <?php
@@ -24,7 +24,6 @@
                 "last_name" => s($userlastname),
                 "email" => s($useremail),
                 "reference" => $reference,
-                "custom_fields" => $customfields
             ];
         ?>
         <form method="post" action="<?php echo "$CFG->wwwroot/enrol/paystack/verify.php"?>">
