@@ -24,6 +24,7 @@
                 "last_name" => s($userlastname),
                 "email" => s($useremail),
                 "reference" => $reference,
+                "custom_fields" => $customfields
             ];
         ?>
         <form method="post" action="<?php echo "$CFG->wwwroot/enrol/paystack/verify.php"?>">
@@ -43,7 +44,7 @@
                 data-email="<?php p($useremail) ?>"
                 data-currency="<?php p($instance->currency) ?>" 
                 data-amount="<?php p($cost * 100) ?>"
-                data-metadata='<?php echo json_encode($data) ?>' 
+                
                 data-locale="<?php echo current_language(); ?>">
             </script>
         </form>
